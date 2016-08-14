@@ -1,6 +1,5 @@
 text babel is not a real thing...
-
-it's a transpiler.
+it's a TRANSPILER.
 
 it allows us to use ES6 features, that don't normally work in ES5.
 
@@ -52,3 +51,7 @@ Frontend can change states that rerenders the view.
 immutable state, if something changes, rather than rewrite it, redraw it.
 Rerender state.
 Only rendering the parts that change.
+
+--- Thick Client - something that you install into the computer.
+
+using back ticks ` ` are considered template literal.
