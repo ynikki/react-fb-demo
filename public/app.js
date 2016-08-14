@@ -19,6 +19,7 @@ const CommentForm = React.createClass({
     if (!text || !author) {
       return;
     }
+    this.props.onCommentSubmit({ author: author, text: text });
     this.setState({ author: '', text: ''});
   },
   render: function () {
@@ -77,7 +78,7 @@ const CommentList = React.createClass({
     });
     return (
       <div className="commentList">
-        { commentNodes }
+        { commentNodes.reverse() }
       </div>
     );
   }
@@ -101,8 +102,19 @@ const CommentBox = React.createClass({
       }.bind(this)
     });
   },
-  handleCommentSubmit: function () {
-
+  handleCommentSubmit: function (comment) {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: comment,
+      success: function (data) {
+        this.setState({ data: data });
+      }.bind(this),
+      error: function (xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },
   getInitialState: function () {
     // Reactive State

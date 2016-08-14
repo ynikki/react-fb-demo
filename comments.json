@@ -1,10 +1,26 @@
 [
-  { 
-    "author": "YourName" ,
-    "text": "Coolio"
-  },
-  { 
-    "author": "NotYourName", 
-    "text": "Something"
-  }
+    {
+        "author": "YourName",
+        "text": "Coolio"
+    },
+    {
+        "author": "NotYourName",
+        "text": "Something"
+    },
+    {
+        "author": "Blah",
+        "text": "Hello"
+    },
+    {
+        "author": "Something",
+        "text": "Ahi"
+    },
+    {
+        "author": "HIIIIIII",
+        "text": "Nikkkkii"
+    },
+    {
+        "author": "Javen",
+        "text": "was here!"
+    }
 ]

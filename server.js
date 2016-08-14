@@ -29,8 +29,31 @@ app.get('/api/comments', function (req, res) {
       process.exit(1);
       // process is the event loop in node
     } 
-      res.json(JSON.parse(data));
-  })
+    res.json(JSON.parse(data));
+  });
+});
+
+app.post('/api/comments', function (req, res) {
+  fs.readFile(COMMENTS_FILE, function (err, data) {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    let comments = JSON.parse(data);
+    let newComment = {
+      // newComment is instatiated.
+      author: req.body.author,
+      text: req.body.text
+    };
+    comments.push(newComment);
+    fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function (err) {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      res.json(comments);
+    });
+  });
 });
 
 app.listen(app.get('port'), function () {
