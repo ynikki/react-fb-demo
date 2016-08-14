@@ -101,6 +101,9 @@ const CommentBox = React.createClass({
       }.bind(this)
     });
   },
+  handleCommentSubmit: function () {
+
+  },
   getInitialState: function () {
     // Reactive State
     return { data: [] }
@@ -114,7 +117,7 @@ const CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <CommentList data={ this.state.data } />
-        <CommentForm />
+        <CommentForm onCommentSubmit={ this.handleCommentSubmit } />
       </div>
     );
   }
